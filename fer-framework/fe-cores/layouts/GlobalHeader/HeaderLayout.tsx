@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ChangeTheme from "../components/ChangeTheme";
+import ChangeTheme from "../../components/ChangeTheme";
 import Account from "@/fer-framework/fe-module-auth/components/Accounts";
 import { Flex } from "antd";
-import FullScreen from "../components/FullScreen";
+import FullScreen from "../../components/FullScreen";
 
 function HeaderLayout() {
   const [full, setFull] = useState(false);
