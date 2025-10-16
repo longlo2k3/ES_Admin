@@ -1,8 +1,8 @@
 import { Divider, Tabs, TabsProps } from "antd";
 import React from "react";
-import LevelCard from "./LevelCard";
-
-function Levels() {
+import LevelCard from "../utilities/component/Levels/LevelCard";
+import TopicList from "./TopicList"
+function LevelListListening() {
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -14,7 +14,9 @@ function Levels() {
           isActive
         />
       ),
-      children: `Content of tab 1`,
+      children: <div>
+        <TopicList />
+      </div>,
     },
     {
       key: "2",
@@ -23,10 +25,12 @@ function Levels() {
           title="Cấp độ trung cấp"
           code="Intermediate"
           desc="Dành cho người đã có nền tảng"
-          isActive = {false}
+          isActive={false}
         />
       ),
-      children: `Content of tab 2`,
+      children: <div>
+        <TopicList />
+      </div>,
     },
     {
       key: "3",
@@ -38,16 +42,18 @@ function Levels() {
           isActive={false}
         />
       ),
-      children: <div>
-        fsdafads
-      </div>,
+      children:
+        <div>
+          <TopicList />
+        </div>
+      ,
     },
   ];
-  return(
-    <div> Chủ đề
+  return (
+    <div> Cấp độ
       <Tabs tabPosition="top" defaultActiveKey="1" items={items} />
     </div>
   );
 }
 
-export default Levels;
+export default LevelListListening;
