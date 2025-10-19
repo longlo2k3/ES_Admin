@@ -1,50 +1,69 @@
-// import AModal from "@/fer-framework/fe-component/web/AModal";
-// import BaseUploadImage from "@/fer-framework/fe-component/web/BaseUploadImage";
-// import { Button, Form, Upload } from "antd";
-// import { UploadFile } from "antd/lib";
-// import React, { useState } from "react";
+"use client";
 
-// interface IProps {
-//   open: boolean;
-//   onCancel: () => void;
-// }
+import AModal from "@/fer-framework/fe-component/web/AModal";
+import UploadFile from "@/fer-framework/fe-module-upload/components/UploadFile";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Form, Input } from "antd";
 
-// function ChangePassword(props: IProps) {
-//   const { open, onCancel } = props;
+import React from "react";
 
-//   const [form] = Form.useForm();
+interface IProps {
+  open: boolean;
+  onCancel: () => void;
+}
 
-//   const click = () => {
-//     console.log("testt>>", form.getFieldsValue());
-//   };
-//   return (
-//     <AModal
-//       title={"Thông tin tài khoản"}
-//       open={open}
-//       onCancel={onCancel}
-//       fullHeight
-//       destroyOnHidden
-//       footer={(_, { OkBtn, CancelBtn }) => (
-//         <>
-//           <CancelBtn />
-//         </>
-//       )}>
-//       <Form layout="vertical">
-//         <Form.Item
-//           name={"avatar_url"}
-//           label="Ảnh đại diện"
-//           valuePropName="value">
-//           <BaseUploadImage />
-//         </Form.Item>
+function ChangePassword(props: IProps) {
+  const { open, onCancel } = props;
 
-//         <Form.Item>
-//           <Button onClick={click} type="primary">
-//             Xây dựng
-//           </Button>
-//         </Form.Item>
-//       </Form>
-//     </AModal>
-//   );
-// }
+  const [form] = Form.useForm();
 
-// export default ChangePassword;
+  const click = () => {
+    console.log("testt>>", form.getFieldsValue());
+  };
+
+  return (
+    <AModal
+      title={"Thông tin tài khoản"}
+      open={open}
+      onCancel={onCancel}
+      fullHeight
+      destroyOnHidden
+      footer={(_, { OkBtn, CancelBtn }) => (
+        <>
+          <CancelBtn />
+        </>
+      )}>
+      <Form form={form} layout="vertical">
+        <Form.Item name={"avatar_url"} label="Ảnh đại diện">
+          <UploadFile
+            listType="picture-card"
+            // initValues={
+            //   "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            // }
+            maxCount={1}
+            multiple={false}
+            maxSize={50}
+            accept="image/*"
+            returnObject={true}>
+            <button style={{ border: 0, background: "none" }} type="button">
+              <PlusOutlined />
+              <div style={{ marginTop: 8 }}>Upload</div>
+            </button>
+          </UploadFile>
+        </Form.Item>
+
+        <Form.Item name={"name"} label="Ảnh đại diện">
+          <Input />
+        </Form.Item>
+
+        <Form.Item>
+          <Button onClick={click} type="primary">
+            Xây dựng
+          </Button>
+        </Form.Item>
+      </Form>
+    </AModal>
+  );
+}
+
+export default ChangePassword;
