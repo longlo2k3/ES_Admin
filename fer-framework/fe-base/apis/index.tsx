@@ -48,13 +48,13 @@ export const postBaseApi = <TBody, any>(
   builder: EndpointBuilder<BaseQueryFn, any, any>,
   partial?: Partial<ReturnType<typeof builder.mutation>>
 ) =>
-  builder.mutation<any, { body: TBody }>({
+  builder.mutation<any, TBody>({
     query: (body: TBody) => ({
       url,
       method: "POST",
       body,
     }),
-    transformResponse: (response: { data: any }, meta, arg) => response,
+    transformResponse: (response: { data: any }, meta, arg) => response.data,
     ...((partial ?? {}) as any),
     transformErrorResponse: (baseQueryReturnValue: any, meta, arg) =>
       baseQueryReturnValue.data,
