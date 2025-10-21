@@ -1,11 +1,10 @@
 import React from "react";
-import Levels from "../../utilities/component/Levels/LevelList";
-import LevelListListening from "../LevelListListening";
+import Levels from "../../../ts-component/LevelList";
 
 function ListeningPage() {
   return (
     <div>
-      <LevelListListening />
+      <Levels />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { Divider, Tabs, TabsProps } from "antd";
 import React from "react";
-import LevelCard from "../utilities/component/Levels/LevelCard";
+import LevelCard from "../ts-module-skills-listening/page";
 import TopicList from "./TopicList"
 function LevelListListening() {
   const items: TabsProps["items"] = [

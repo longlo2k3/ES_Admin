@@ -1,6 +1,6 @@
-import { Divider, Tabs, TabsProps } from "antd";
+import { Tabs, TabsProps } from "antd";
 import React from "react";
-import LevelCard from "./LevelCard";
+import LevelCard from "../LevelCard";
 
 function Levels() {
   const items: TabsProps["items"] = [
@@ -11,7 +11,6 @@ function Levels() {
           title="Cấp độ cơ bản"
           code="Beginner"
           desc="Dành cho người mới bắt đầu"
-          isActive
         />
       ),
       children: `Content of tab 1`,
@@ -23,7 +22,6 @@ function Levels() {
           title="Cấp độ trung cấp"
           code="Intermediate"
           desc="Dành cho người đã có nền tảng"
-          isActive = {false}
         />
       ),
       children: `Content of tab 2`,
@@ -35,7 +33,6 @@ function Levels() {
           title="Cấp độ nâng cao"
           code="Advanced"
           desc="Dành cho người đã thành thạo"
-          isActive={false}
         />
       ),
       children: <div>
@@ -43,8 +40,10 @@ function Levels() {
       </div>,
     },
   ];
-  return(
-    <div> Chủ đề
+  return (
+    <div>
+      {" "}
+      Chủ đề
       <Tabs tabPosition="top" defaultActiveKey="1" items={items} />
     </div>
   );
