@@ -12,6 +12,7 @@ import ForgetPassword from "../ForgetPassword";
 import { useLazyGetUserQuery, usePostLoginMutation } from "../../apis";
 import { useDispatch } from "react-redux";
 import { userAgentFromString } from "next/server";
+import { toast, ToastContainer } from "react-toastify";
 
 const { Title } = Typography;
 
@@ -35,9 +36,11 @@ function FormLogin() {
       const user = await triggerGetUser(data.user.id).unwrap();
 
       localStorage.setItem("userId", JSON.stringify(data.user.id));
+      toast.success("Đăng nhập thành công");
       router.push("/home");
     } catch (error) {
       console.log(error);
+      toast.error(error?.message || "Lỗi xác thực");
     }
   };
 
@@ -56,6 +59,7 @@ function FormLogin() {
         <Title level={3} style={{ textAlign: "center" }}>
           Đăng nhập
         </Title>
+        <ToastContainer position="top-right" autoClose={3000} />
 
         <Form
           form={form}
