@@ -6,10 +6,7 @@ export const topicApis = baseApi.injectEndpoints({
             query: (params) => ({
                 url: '/admin/catalog/topics',
                 method: 'GET',
-                params: {
-                    skill_id: '68ed254ce5c75afc72ea3c28',
-                    level_id: '68ed254ce5c75afc72ea3c2f'
-                },
+                params
             }),
         }),
     }),

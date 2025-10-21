@@ -20,6 +20,10 @@ function TopicTable(props: IProps) {
     } = useHookTable({
       useHookApi: useGetTopicsQuery,
       config: ["title", "level", "exercises"],
+      paramsApi: {
+        skill_id: '68ed254ce5c75afc72ea3c28',
+        level_id: '68ed254ce5c75afc72ea3c2f'
+      },
     });
   
   const columns: ColumnProps<any>[] = [
@@ -67,7 +71,7 @@ function TopicTable(props: IProps) {
         return (
           <Typography.Link
             key={_}
-            href={`/skills/listening/${record.title}/${record.level_id}/${record.description}`}>
+            href={`/skills/listening/${record.title}/${record.level_id}/${record._id}`}>
             Làm bài
           </Typography.Link>
         );

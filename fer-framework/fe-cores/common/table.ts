@@ -12,6 +12,7 @@ import { searchSliceSelectors } from "@/fer-framework/fe-component/reducers/Sear
 interface UseAntdTableProps<T> {
   // Hàm fetch data, nhận vào pagination và trả về Promise<dữ liệu>
   useHookApi: any;
+  paramsApi?: any;
   config?: any;
 }
 
@@ -26,6 +27,7 @@ interface UseAntdTableResult<T> {
 export const useHookTable = <T extends UseAntdTableProps<T>>({
   useHookApi,
   config,
+  paramsApi,
 }: UseAntdTableProps<T>): UseAntdTableResult<T> => {
   const valueSearch = useSelector((state: any) =>
     searchSliceSelectors.getGlobalSearchValue(state)
@@ -33,7 +35,7 @@ export const useHookTable = <T extends UseAntdTableProps<T>>({
   const [dataSource, setDataSource] = useState<T[]>([]);
   const [total, setTotal] = useState<number>(0);
 
-  const { data, refetch } = useHookApi(null);
+  const { data, refetch } = useHookApi(paramsApi);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
