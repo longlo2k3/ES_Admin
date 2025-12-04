@@ -72,15 +72,11 @@ export const useHookTable = <T extends UseAntdTableProps<T>>({
       total: total,
       showSizeChanger: true,
       pageSizeOptions: ["10", "20", "50", "100"],
-      locale: { items_per_page: ` / ${t("table.page")}` },
+      locale: { items_per_page: ` / ${"Trang"}` },
       onChange: (page, size) =>
         handleTableChange({ current: page, pageSize: size }),
       showTotal: (total, range) =>
-        t("table.showTotal", {
-          start: range[0],
-          end: range[1],
-          total: total,
-        }),
+        `${range[0]}-${range[1]} / ${total} dữ liệu `,
     }),
     [currentPage, pageSize, total, handleTableChange, t]
   );
