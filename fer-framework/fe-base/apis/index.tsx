@@ -116,7 +116,6 @@ export const deleteBaseApi = <DeleteParams,>(
       baseQueryReturnValue.data,
   });
 
-// ascasc
 // export const createEndpoints = (
 //   url: string,
 //   slide: string,
